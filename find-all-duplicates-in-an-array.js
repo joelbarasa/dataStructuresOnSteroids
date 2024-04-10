@@ -16,7 +16,7 @@ var findDuplicates = function (nums) {
 };
 
 
-//Option 2
+//Option 2 is the best
 /**
  * @param {number[]} nums
  * @return {number[]}
