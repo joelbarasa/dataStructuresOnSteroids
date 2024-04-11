@@ -37,3 +37,20 @@ var isNumber = function (s) {
     }
     return isValid;
 };
+
+
+/*Best solution*/
+/**
+ * @param {string} s
+ * @return {boolean}
+ */
+var isNumber = function (s) {
+
+    if (s === Number.POSITIVE_INFINITY || s === Number.NEGATIVE_INFINITY) {
+        return false;
+    }
+    else {
+        return !isNaN(parseInt(s));
+    }
+};
+
