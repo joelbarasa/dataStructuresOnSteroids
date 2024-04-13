@@ -1,20 +1,23 @@
-if (!Array.isArray(nums) || nums.length === 0) {
-    return 0;
-  }
-  if (nums.length === 1) {
-    return nums;
-  } else {
-    nums.sort((a, b) => (a < b ? -1 : 0));
-    console.log(nums);
-    let majorityElement = [];
-
+/**
+ * @param {number[]} nums
+ * @return {number[]}
+ */
+var majorityElement = function (nums) {
+    let map = new Map();
+    let majorityValues = new Array();
     for (let i = 0; i < nums.length; i++) {
-      let count = 1;
-      while (nums[i] === nums[i + 1] && i < nums.length) {
-        i++;
-        count++;
-      }
-      if (count > nums.length / 3) majorityElement.push(nums[i]);
+        if (!map.has(nums[i])) {
+            map.set(nums[i], 1);
+        }
+        else {
+            map.set(nums[i], map.get(nums[i]) + 1);
+        }
     }
-    return majorityElement;
-  }
+    console.log(map);
+    for (let [key, value] of map) {
+        if (value > (nums.length / 3)) {
+            majorityValues.push(key);
+        }
+    }
+    return majorityValues;
+};
