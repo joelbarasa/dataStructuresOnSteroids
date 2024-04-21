@@ -20,3 +20,22 @@ function twoSumWithSortedArray(nums, target) {
     }
   }
 }
+
+
+function twoSumTwoPointer(nums, target) {
+  let startIndex = 0,
+    endIndex = nums.length - 1;
+  while (startIndex < endIndex) {
+    let sum = nums[startIndex] + nums[endIndex];
+    if (sum === target) {
+      return [startIndex, endIndex];
+    }
+
+    if (sum < target) {
+      startIndex++;
+    } else {
+      endIndex--;
+    }
+  }
+  return 0;  
+}
