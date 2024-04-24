@@ -16,6 +16,7 @@ var maxProfit = function (prices) {
             if (prices[i] - prices[minimumIndex] > maximumDeviation) {
                 maximumDeviation = prices[i] - prices[minimumIndex];
             }
+                 // maximumDeviation = Math.max(maximumDeviation, (prices[currentIndex] - prices[minimumIndex]));
         }
         return maximumDeviation;
     }
