@@ -16,3 +16,20 @@ var reverseWords = function (s) {
     }
     return reversedString;
 };
+
+
+function reverseWords(s) {
+  let reversedWord = "";
+  let lastPos = s.length;
+  for (let index = s.length; index >= 0; index--) {
+    if (s.charAt(index) === " ") {
+      startPos = index + 1;
+      reversedWord = reversedWord + s.substring(startPos, lastPos).trim() + " ";
+      lastPos = startPos;
+    }
+    if (index === 0) {
+      reversedWord = reversedWord + s.substring(index, s.indexOf(" ")).trim();
+    }
+  }
+  return reversedWord;
+}
