@@ -19,17 +19,23 @@ var reverseWords = function (s) {
 
 
 function reverseWords(s) {
-  let reversedWord = "";
-  let lastPos = s.length;
-  for (let index = s.length; index >= 0; index--) {
-    if (s.charAt(index) === " ") {
-      startPos = index + 1;
-      reversedWord = reversedWord + s.substring(startPos, lastPos).trim() + " ";
-      lastPos = startPos;
+ let reversedWord = "";
+    let lastPos = s.length;
+    for (let index = s.length; index >= 0; index--) {
+        if (s.charAt(index) === " ") {
+            startPos = index + 1;
+            if (s[startPos] === " " && index !== 0) {
+                continue;
+            }
+            reversedWord = reversedWord + s.substring(startPos, lastPos).trim() + " ";
+            lastPos = startPos;
+        }
+        if (index === 0) {
+            reversedWord = reversedWord + s.substring(index, s.indexOf(" "));
+            if (reversedWord.length === 0) {
+                reversedWord += s.substring(0, s.length);
+            }
+        }
     }
-    if (index === 0) {
-      reversedWord = reversedWord + s.substring(index, s.indexOf(" ")).trim();
-    }
-  }
-  return reversedWord;
+    return reversedWord.trim();
 }
