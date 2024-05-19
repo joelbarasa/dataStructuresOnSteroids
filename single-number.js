@@ -14,3 +14,18 @@ var singleNumber = function (nums) {
     }
 
 };
+
+
+function singleNumber(arr) {
+  //So we can XOR all the numbers in the input 
+  //duplicate numbers will zero out each other and we will be left with the single number.
+  let num = 0
+  
+  for(let i = 0; i < arr.length; i++) {
+    num ^= arr[i]
+  }
+  return num
+}
+
+singleNumber([1, 4, 2, 1, 3, 2, 3])//4
+singleNumber([7, 9, 7])//9
