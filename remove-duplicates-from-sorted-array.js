@@ -41,3 +41,22 @@ function removeDuplicates(nums) {
   }
   return nextNoneDuplicate;
 }
+
+
+/**
+ * @param {number[]} nums
+ * @return {number}
+ */
+var removeDuplicates = function (nums) {
+    // WRITE YOUR BRILLIANT CODE HERE
+    let map = new Map();
+    for (let val = 0; val < nums.length; val++) {
+        if (map.has(nums[val])) {
+            nums.splice(val, 1);
+            val--;
+        }
+        map.set(nums[val], 1);
+    }
+    // console.log(map);
+    return nums.length;
+};
