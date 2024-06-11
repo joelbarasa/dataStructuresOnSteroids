@@ -1,3 +1,32 @@
+
+/**
+ * @param {number[]} nums
+ * @return {number[][]}
+ */
+var threeSum = function (nums) {
+    let combination = [];
+    nums.sort((a, b) => a - b);
+    for (let i = 0; i < nums.length; i++) {
+        let left = i + 1;
+        let right = nums.length - 1;
+        let current = nums[i];
+        while (left < right) {
+            let sum = current + nums[left] + nums[right];
+            if (sum === 0) {
+                combination.push([current, nums[left], nums[right]]);
+                left++;
+                right--;
+            }
+            if (sum < 0) {
+                left++;
+            }
+            else {
+                right--;
+            }
+        }
+    }
+    return combination;
+};
 /**
  * @param {number[]} nums
  * @return {number[][]}
