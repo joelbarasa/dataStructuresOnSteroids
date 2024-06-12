@@ -33,6 +33,6 @@ var addTwoNumbers = function (l1, l2) {
         dummyNode.next = new ListNode(num);
         dummyNode = dummyNode.next;
     }
-    // return res.next;
-    return dummyNode;
+    return res.next;
+    // return dummyNode;
 };
