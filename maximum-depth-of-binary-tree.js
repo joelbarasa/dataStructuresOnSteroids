@@ -20,3 +20,18 @@ var maxDepth = function (root) {
         return Math.max(maxLeft, maxRight) + 1;
     }
 };
+
+
+var maxDepth = function (root) {
+    let maxHeight = 0;
+    if (root === null || !root) {
+        return maxHeight;
+    }
+    else {
+        
+        let maxLeft = maxDepth(root.left);
+        let maxRight = maxDepth(root.right);
+        maxHeight = Math.max(maxLeft, maxRight)+1;
+    }
+    return maxHeight;
+};
